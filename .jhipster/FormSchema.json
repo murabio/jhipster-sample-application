@@ -1,0 +1,28 @@
+{
+    "name": "FormSchema",
+    "fields": [
+        {
+            "fieldName": "definition",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "formData",
+            "otherEntityRelationshipName": "schema",
+            "relationshipName": "formData"
+        }
+    ],
+    "changelogDate": "20200316190300",
+    "entityTableName": "form_schema",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

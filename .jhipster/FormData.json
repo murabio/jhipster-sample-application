@@ -1,0 +1,36 @@
+{
+    "name": "FormData",
+    "fields": [
+        {
+            "fieldName": "payload",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "employee",
+            "otherEntityRelationshipName": "formData",
+            "relationshipName": "author",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "formSchema",
+            "otherEntityRelationshipName": "formData",
+            "relationshipName": "schema",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200316190400",
+    "entityTableName": "form_data",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

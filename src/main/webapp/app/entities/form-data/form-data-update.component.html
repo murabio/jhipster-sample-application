@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-form-data-heading" jhiTranslate="jhipsterSampleApplicationApp.formData.home.createOrEditLabel">Create or edit a Form Data</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.formData.payload" for="field_payload">Payload</label>
+                    <input type="text" class="form-control" name="payload" id="field_payload"
+                           formControlName="payload"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.formData.author" for="field_author">Author</label>
+                    <select class="form-control" id="field_author" name="author" formControlName="author">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="employeeOption.id === editForm.get('author')!.value?.id ? editForm.get('author')!.value : employeeOption" *ngFor="let employeeOption of employees; trackBy: trackById">{{ employeeOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.formData.schema" for="field_schema">Schema</label>
+                    <select class="form-control" id="field_schema" name="schema" formControlName="schema">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="formSchemaOption.id === editForm.get('schema')!.value?.id ? editForm.get('schema')!.value : formSchemaOption" *ngFor="let formSchemaOption of formschemas; trackBy: trackById">{{ formSchemaOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
