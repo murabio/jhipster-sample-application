@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="formData">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.formData.detail.title">Form Data</span> {{ formData.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.formData.payload">Payload</span></dt>
+                <dd>
+                    <span>{{ formData.payload }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.formData.author">Author</span></dt>
+                <dd>
+                    <div *ngIf="formData.author">
+                        <a [routerLink]="['/employee', formData.author?.id, 'view']">{{ formData.author?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.formData.schema">Schema</span></dt>
+                <dd>
+                    <div *ngIf="formData.schema">
+                        <a [routerLink]="['/form-schema', formData.schema?.id, 'view']">{{ formData.schema?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/form-data', formData.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
